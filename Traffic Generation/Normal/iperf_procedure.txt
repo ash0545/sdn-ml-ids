@@ -1,0 +1,4 @@
+for iperf traffic generation:
+	1. start the iperf server on one node ($ iperf -s)
+	2. on another node, connect to the server for a specified time as follows
+		iperf -c <server node's ip> -t <time of connection> -i <interval for printing stats>
