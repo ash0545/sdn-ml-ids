@@ -120,6 +120,7 @@ A total of roughly 291k attack flows (spread over 11 classes) and 122k normal fl
 | ![Attack counts](https://github.com/user-attachments/assets/d50813a0-b5ab-4293-b038-34cfa202ac50) | ![Normal counts](https://github.com/user-attachments/assets/bd015221-290b-47a5-86da-07d4484cf748) |
 
 The data is comprised of 27 features collected from 3 of `ofctl_rest`'s endpoints, detailed below:
+
 | No. | Feature name        |
 | --- | ------------------- |
 | 1   | src                 |
@@ -174,7 +175,7 @@ Laplacian correction (adding 1 to all values) was applied before division transf
 
 To address the limitations of individual feature selection methods, three methods were employed and the intersection of their results was used to identify key variables. The three methods applied were:
 
-- **FDR**<sup>[[3]](#references)</sup>: controls for the expected proportion of false rejection of features in multiple significance testing 
+- **FDR**<sup>[[3]](#references)</sup>: controls for the expected proportion of false rejection of features in multiple significance testing
 - **Stepwise Selection**<sup>[[8]](#references)</sup>: an iterative process of adding important features to a null set of features and removing the worst performing features
 - **Boruta**<sup>[[6]](#references)</sup>: iteratively removes features that are relatively less statistically significant compared to random probability distribution
 
@@ -196,17 +197,17 @@ The 13 transformed features, as well as the final 5 selected by the above featur
 | 12  | **port_rx_bytes_sec**   | $`\frac{\text{port\_rx\_bytes}}{\text{port\_duration\_sec}}`$        |
 | 13  | **port_tx_bytes_sec**   | $`\frac{\text{port\_tx\_bytes}}{\text{port\_duration\_sec}}`$        |
 
-RobustScaler<sup>[[9]](#references)</sup> (RS) was then applied to handle outliers in the dataset, ensuring that the model is not overly affected by extreme values. 
+RobustScaler<sup>[[9]](#references)</sup> (RS) was then applied to handle outliers in the dataset, ensuring that the model is not overly affected by extreme values.
 
 ### Model Training & Analysis
 
 We selected an ML model by performing a comprehensive comparison between 6 unique models using multiple evaluation metrics **before performing dimensionality reduction** on the dataset. The models compared were:
 
-- **K-Nearest Neighbors (KNN)**: a simple, instance-based learning algorithm; 
-- **Support Vector Machine (SVM)**: a powerful classifier that works by finding the optimal hyperplane for separation; 
+- **K-Nearest Neighbors (KNN)**: a simple, instance-based learning algorithm;
+- **Support Vector Machine (SVM)**: a powerful classifier that works by finding the optimal hyperplane for separation;
 - **Logistic Regression (LR)**: a probabilistic model used for binary classification
-- **Decision Tree (DT)**: a model that splits data into homogenous subsets based on feature values; 
-- **Naive Bayes (NB)**: a probabilistic classifier based on Bayes' theorem with strong independence assumptions; 
+- **Decision Tree (DT)**: a model that splits data into homogenous subsets based on feature values;
+- **Naive Bayes (NB)**: a probabilistic classifier based on Bayes' theorem with strong independence assumptions;
 - **Random Forest (RF)**: an ensemble of decision trees that improves accuracy by averaging multiple models.
 
 ![ml_models](https://github.com/user-attachments/assets/56a9fec9-b929-4f16-a577-91d13acbae43)
@@ -230,7 +231,7 @@ To achieve similar results without an extensive pre-processing pipeline, the Fee
 - Implementation of a _functional_ IDS and Intrusion Prevention System (IPS)
 
 > [!NOTE]
-> A legacy (partially working) IDS is provided in the [Ryu Controller subdirectory](), It utilizes an RF model trained with an RS PCA preprocessing pipeline. Predictions are a hit or miss. 
+> A legacy (partially working) IDS is provided in the [Ryu Controller subdirectory](), It utilizes an RF model trained with an RS PCA preprocessing pipeline. Predictions are a hit or miss.
 
 - Test out more DL models
 
