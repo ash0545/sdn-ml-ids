@@ -70,13 +70,13 @@ Project work done for the **IP1302** course of our 5th Semester.
 
 The project can be divided into 4 major sections: proposing a network topology, data gathering, data processing and training / analysis of ML / DL models. The details and files for implementing each section can be found in their respective subdirectories:
 
-1. [Network Topology]()
+1. [Network Topology](/Network%20Topology/)
    - Creating the Topology in VirtualBox
    - Configuring the Ubuntu VM and Mininet
    - Connecting a Mininet host to the internet
    - Connecting the Kali and Metasploitable VMs - Linux Routing through the Ubuntu VM
    - Configuring the Kali and Metasploitable VMs
-2. [Dataset Collection]()
+2. [Dataset Collection](/Dataset%20Collection/)
    - Ryu Controller
    - Attack traffic generation (11 unique attacks)
      - Distributed Denial of Service (DDoS)
@@ -91,7 +91,7 @@ The project can be divided into 4 major sections: proposing a network topology, 
      - Telnet
      - DNS
    - Collected Dataset
-3. [Data Processing]()
+3. [Data Processing](/Data%20Processing/)
    - Preprocessing
      - Cleansing
      - Division Transformation
@@ -104,7 +104,7 @@ The project can be divided into 4 major sections: proposing a network topology, 
      - Principal Component Analysis (PCA)
      - Linear Discriminant Analysis (LDA)
      - Independent Component Analysis (ICA)
-4. [Model Training & Analysis]()
+4. [Model Training & Analysis](/Model%20Training%20&%20Analysis/)
    - ML models comparison
    - Dimensionality Reduction techniques comparison
    - DL model performance evaluation
@@ -231,7 +231,7 @@ To achieve similar results without an extensive pre-processing pipeline, the Fee
 - Implementation of a _functional_ IDS and Intrusion Prevention System (IPS)
 
 > [!NOTE]
-> A legacy (partially working) IDS is provided in the [Ryu Controller subdirectory](), It utilizes an RF model trained with an RS PCA preprocessing pipeline. Predictions are a hit or miss.
+> A legacy (partially working) IDS is provided in the [Ryu Controller subdirectory](/Dataset%20Collection/), It utilizes an RF model trained with an RS PCA preprocessing pipeline. Predictions are a hit or miss.
 
 - Test out more DL models
 
