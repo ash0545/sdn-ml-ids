@@ -106,7 +106,6 @@ The project can be divided into 4 major sections: proposing a network topology, 
      - Independent Component Analysis (ICA)
 4. [Model Training & Analysis](/Model%20Training%20&%20Analysis/)
    - ML models comparison
-   - Dimensionality Reduction techniques comparison
    - DL model performance evaluation
 
 ## Results
