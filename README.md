@@ -93,13 +93,13 @@ The project can be divided into 4 major sections: proposing a network topology, 
    - Collected Dataset
 3. [Data Processing](/Data%20Processing/)
    - Preprocessing
-     - Cleansing
+     - Cleansing / Shuffling
      - Division Transformation
-     - Scaling
    - Feature Selection
      - Benjamini–Hochberg False Discovery Rate (FDR)<sup>[[3]](#references)</sup>
      - Stepwise Selection<sup>[[8]](#references)</sup>
      - Boruta<sup>[[6]](#references)</sup>
+   - Scaling
    - Dimensionality Reduction
      - Principal Component Analysis (PCA)
      - Linear Discriminant Analysis (LDA)
