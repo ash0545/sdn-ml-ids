@@ -21,8 +21,6 @@ This section contains the scripts to generate the various types of network attac
 | R2L               | • Application Plane<br>• Controller<br>• Data Plane | Brute Force Attack, CMD, File upload                                         | Selenium                          | Kali Linux VM: 192.168.56.101                  | Metasploitable 2 server VM Web server (DVWA): 192.168.21.3 |
 | U2R               | • Application Plane<br>• Controller<br>• Data Plane | Exploit VNC port 5900, Samba Server                                          | Metasploit framework (msfconsole) | Kali Linux VM: 192.168.56.101                  | Metasploitable 2 server VM 192.168.21.3                    |
 
-This repository contains scripts to generate various types of network attack traffic for Intrusion Detection System (IDS) dataset creation. The scripts cover a range of attack types, designed for testing and enhancing IDS capabilities in identifying malicious network behaviors.
-
 ## Attack Classes and Tools
 
 1. **DDoS Attacks**
@@ -31,11 +29,12 @@ This repository contains scripts to generate various types of network attack tra
 
 2. **Probe Attacks**
    - **Tool**: [Nmap](https://nmap.org/)
-   - **Description**: Nmap is used to scan a target (e.g., Metasploitable VM) for open ports, services, and OS details. The gathered data simulates probe attacks, where network information is collected for potential exploitation.
+   - **Description**: Nmap is used to scan a target for open ports, services, and OS details. The gathered data simulates probe attacks, where network information is collected for potential exploitation.
+   - **Command Used**: `nmap <victim-ip> -sV -O -p`
 
 3. **Web and R2L (Remote-to-Local) Attacks**
-   - **Tool**: [Selenium](https://www.selenium.dev/)
-   - **Description**: Selenium automates web interactions on the Damn Vulnerable Web Application (DVWA) to generate:
+   - **Tools**: [Selenium](https://www.selenium.dev/), [Damn Vulnerable Web Application (DVWA)](https://github.com/digininja/DVWA)
+   - **Description**: Selenium automates web interactions on the DVWA to generate:
      - **SQL Injection (SQLi)**: Manipulates SQL queries to access unauthorized data.
      - **Cross-Site Scripting (XSS)**: Injects scripts into web pages viewed by others.
      - **Command Injection (CMD)**: Executes unauthorized commands on the server.
@@ -48,16 +47,27 @@ This repository contains scripts to generate various types of network attack tra
 
 ## Provided Files
 
-- **10-million-password-list-top-100000.txt**: Password list for brute force attacks.
-- **ddos_tcp_udp_icmp.py**: Script to generate DDoS traffic using Scapy.
-- **malicious.php**: Malicious PHP file used for file upload vulnerability.
-- **r2l_brute_force.py**: Script for brute force login attempts.
-- **r2l_cmd_injection.py**: Script for command injection attack.
-- **r2l_file_upload.py**: Script for file upload attack.
-- **u2r_msf_samba.py**: Metasploit script for Samba vulnerability exploitation.
-- **u2r_msf_vnc.py**: Metasploit script for VNC vulnerability exploitation.
-- **web_reflected_xss.py**: Script for XSS attacks.
-- **web_sql_injection.py**: Script for SQL injection attacks.
+- DDoS
+  - **ddos_tcp_udp_icmp.py**: Script to generate DDoS traffic using Scapy.
+- Web
+  - **web_reflected_xss.py**: Script for XSS attacks.
+  - **web_sql_injection.py**: Script for SQL injection attacks.
+
+> [!NOTE]
+> The Probe attack uses only the single command mentioned in the [previous section](#attack-classes-and-tools).
+
+- R2L
+  - **r2l_brute_force.py**: Script for brute force login attempts.
+  - **r2l_cmd_injection.py**: Script for command injection attack.
+  - **r2l_file_upload.py**: Script for file upload attack.
+  - **10-million-password-list-top-100000.txt**: Password list for brute force attacks.
+  - **malicious.php**: Malicious PHP file used for file upload vulnerability.
+
+- U2R
+  > [!IMPORTANT]
+  > All msf scripts require configuration with the MSFRPCD utility for proper functioning. Details are provided as comments within the scripts.
+  - **u2r_msf_samba.py**: Metasploit script for Samba vulnerability exploitation.
+  - **u2r_msf_vnc.py**: Metasploit script for VNC vulnerability exploitation.
 
 ## Usage Instructions
 
@@ -68,4 +78,3 @@ This repository contains scripts to generate various types of network attack tra
    - [Selenium](https://www.selenium.dev/)
 3. Follow each script's comments for specific configurations, such as target IP addresses and network interface settings.
 4. Run the scripts in their respective VMs / Mininet Hosts - refer the [table](#generated-attack-classes) given above.
-
