@@ -118,7 +118,11 @@ A total of roughly 291k attack flows (spread over 11 classes) and 122k normal fl
 | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
 | ![Attack counts](https://github.com/user-attachments/assets/d50813a0-b5ab-4293-b038-34cfa202ac50) | ![Normal counts](https://github.com/user-attachments/assets/bd015221-290b-47a5-86da-07d4484cf748) |
 
-The data is comprised of 27 features collected from 3 of `ofctl_rest`'s endpoints, detailed below:
+The data is comprised of 27 features collected from 3 of `ofctl_rest`'s endpoints.
+
+<details open>
+
+<summary> The 27 collected features</summary>
 
 | No. | Feature name        |
 | --- | ------------------- |
@@ -150,9 +154,15 @@ The data is comprised of 27 features collected from 3 of `ofctl_rest`'s endpoint
 | 26  | port_collisions     |
 | 27  | port_duration_sec   |
 
+</details>
+
 ### Data Processing
 
-The following features were removed:
+Identifying and zero variance features were removed.
+
+<details open>
+
+<summary> The removed features </summary>
 
 - Identifying features
   - src
@@ -169,6 +179,8 @@ The following features were removed:
   - port_rx_over_err
   - port_rx_crc_err
   - port_collisions
+
+</details>
 
 Laplacian correction (adding 1 to all values) was applied before division transformation to handle division by zero.
 
@@ -209,21 +221,39 @@ We selected an ML model by performing a comprehensive comparison between 6 uniqu
 - **Naive Bayes (NB)**: a probabilistic classifier based on Bayes' theorem with strong independence assumptions;
 - **Random Forest (RF)**: an ensemble of decision trees that improves accuracy by averaging multiple models.
 
+<details open>
+
+<summary> Comparison of ML models</summary>
+
 ![ml_models](https://github.com/user-attachments/assets/56a9fec9-b929-4f16-a577-91d13acbae43)
+
+</details>
 
 RF was chosen over DT as RF demonstrates improved robustness and generalization by combining multiple decision trees, reducing the risk of overfitting. RF achieves 100% accuracy across all attack classes, making it highly reliable for our IDS.
 
-The PCA, LDA and ICA dimensionality reduction techniques were then compared using the RF model:
+The PCA, LDA and ICA dimensionality reduction techniques were then compared using the RF model.
+
+<details open>
+
+<summary> Comparison of Dimensionality Reduction techniques</summary>
 
 ![rf_dim_red](https://github.com/user-attachments/assets/63ab75d8-b090-40d6-b55c-8ed5021e49a5)
+
+</details>
 
 The performance with LDA, the best of all three, was slightly lower than using the dataset without dimensionality reduction. Given that this performance difference is negligible, we opted to use LDA for dimensionality reduction, as it allows us to reduce the feature space from 5 to 4 features.
 
 The final RF model pipeline, with manual division transformation, feature selection through intersection, scaling and dimensionality reduction, gave a final performance of 99.99% across all metrics, with marginal variance.
 
-To achieve similar results without an extensive pre-processing pipeline, the Feed Forward Neural Network DL model was evaluated. Running the model directly on the dataset's transformed features achieved an accuracy of ~98.7%, with other metrics in a similar range. As shown in the below figure, performance dropped significantly when the dataset was reduced through feature selection and dimensionality reduction, suggesting that this approach is more suitable for larger datasets.
+To achieve similar results without an extensive pre-processing pipeline, the Feed Forward Neural Network DL model was evaluated. Running the model directly on the dataset's transformed features achieved an accuracy of ~98.7%, with other metrics in a similar range. Performance dropped significantly when the dataset was reduced through feature selection and dimensionality reduction, suggesting that this approach is more suitable for larger datasets.
+
+<details open>
+
+<summary> Effect of Dimensionality Reduction techniques on FFNN</summary>
 
 ![ffnn_dim_red](https://github.com/user-attachments/assets/5a38afb9-91a0-4dbc-a680-ecda12030d16)
+
+</details>
 
 ## Future Work
 
