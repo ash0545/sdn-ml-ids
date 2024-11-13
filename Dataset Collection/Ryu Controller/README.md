@@ -33,5 +33,6 @@ Three endpoints of the `ofctl_rest` API were accessed, and the results combined,
 2. Setup your topology, ensuring it is properly configured to use your controller.
 3. Once flows start being generated in the topology, the controller will create a new file within the same directory, and start appending flows to it.
 4. After collecting the required amount of flows, the controller can be stopped, and the CSV file renamed to whichever flow you have collected.
-   > [!WARNING]
-   > Be sure to rename / move the generated CSV file after collection of a particular kind of traffic. If not done, the controller will continue to append flows to the same file.
+
+> [!WARNING]
+> Be sure to rename / move the generated CSV file after collection of a particular kind of traffic. If not done, the controller will continue to append flows to the same file.

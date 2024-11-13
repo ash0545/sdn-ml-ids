@@ -63,9 +63,11 @@ This section contains the scripts to generate the various types of network attac
   - **10-million-password-list-top-100000.txt**: Password list for brute force attacks.
   - **malicious.php**: Malicious PHP file used for file upload vulnerability.
 
+> [!IMPORTANT]
+> All msf scripts require configuration with the MSFRPCD utility for proper functioning. Details are provided as comments within the scripts.
+
 - U2R
-  > [!IMPORTANT]
-  > All msf scripts require configuration with the MSFRPCD utility for proper functioning. Details are provided as comments within the scripts.
+
   - **u2r_msf_samba.py**: Metasploit script for Samba vulnerability exploitation.
   - **u2r_msf_vnc.py**: Metasploit script for VNC vulnerability exploitation.
 

@@ -32,7 +32,8 @@ Input to the model is first transformed using the same division transformation d
 1. Run the Ryu controller Python file in conjunction with the `ofctl_rest` application through ryu-manager: `ryu-manager <file.py> ryu.app.ofctl_rest`
 2. Setup your topology, ensuring it is properly configured to use your controller.
 3. Once flows start being generated in the topology, the controller will begin logging the predictions.
-   > [!CAUTION]
-   > The controller by default gives a prediction every 10 seconds. If no flows as generated within 10 seconds after the controller has been started, an error will occur. The controller will then have to be restarted for predictions to start working again.
-   >
-   > This can be avoided by generating packets immediately after the controller is started, using something akin to the `pingall` command from mininet.
+
+> [!CAUTION]
+> The controller by default gives a prediction every 10 seconds. If no flows as generated within 10 seconds after the controller has been started, an error will occur. The controller will then have to be restarted for predictions to start working again.
+>
+> This can be avoided by generating packets immediately after the controller is started, using something akin to the `pingall` command from mininet.
