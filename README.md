@@ -24,7 +24,6 @@ Project work done for the **IP1302** course of our 5th Semester.
   - [Implementation](#implementation)
   - [Results](#results)
     - [Collected Dataset](#collected-dataset)
-    - [Data Processing](#data-processing)
     - [Model Training \& Analysis](#model-training--analysis)
   - [Future Work](#future-work)
   - [Helpful Links](#helpful-links)
@@ -120,9 +119,9 @@ A total of roughly 291k attack flows (spread over 11 classes) and 122k normal fl
 
 The data is comprised of 27 features collected from 3 of `ofctl_rest`'s endpoints.
 
-<details open>
+<details>
 
-<summary> The 27 collected features</summary>
+<summary> The 27 collected features (click to expand) </summary>
 
 | No. | Feature name        |
 | --- | ------------------- |
@@ -156,60 +155,6 @@ The data is comprised of 27 features collected from 3 of `ofctl_rest`'s endpoint
 
 </details>
 
-### Data Processing
-
-Identifying and zero variance features were removed.
-
-<details open>
-
-<summary> The removed features </summary>
-
-- Identifying features
-  - src
-  - dst
-  - table_id
-  - in_port
-  - dl_dst
-- Zero variance features
-  - port_rx_dropped
-  - port_tx_dropped
-  - port_rx_errors
-  - port_tx_errors
-  - port_rx_frame_err
-  - port_rx_over_err
-  - port_rx_crc_err
-  - port_collisions
-
-</details>
-
-Laplacian correction (adding 1 to all values) was applied before division transformation to handle division by zero.
-
-To address the limitations of individual feature selection methods, three methods were employed and the intersection of their results was used to identify key variables. The three methods applied were:
-
-- **FDR**<sup>[[3]](#references)</sup>: controls for the expected proportion of false rejection of features in multiple significance testing
-- **Stepwise Selection**<sup>[[8]](#references)</sup>: an iterative process of adding important features to a null set of features and removing the worst performing features
-- **Boruta**<sup>[[6]](#references)</sup>: iteratively removes features that are relatively less statistically significant compared to random probability distribution
-
-The 13 transformed features, as well as the final 5 selected by the above feature selection methods' intersection (bolded) is given below:
-
-| No  | Feature Name            | Equation                                                             |
-| --- | ----------------------- | -------------------------------------------------------------------- |
-| 1   | ip_bytes_sec            | $`\frac{\text{ip\_bytes}}{\text{ip\_duration}}`$                     |
-| 2   | **ip_packets_sec**      | $`\frac{\text{ip\_packet}}{\text{ip\_duration}}`$                    |
-| 3   | ip_bytes_packet         | $`\frac{\text{ip\_bytes}}{\text{ip\_packet}}`$                       |
-| 4   | port_bytes_sec          | $`\frac{\text{port\_bytes}}{\text{ip\_duration}}`$                   |
-| 5   | port_packet_sec         | $`\frac{\text{port\_packet}}{\text{ip\_duration}}`$                  |
-| 6   | port_byte_packet        | $`\frac{\text{port\_bytes}}{\text{port\_packet}}`$                   |
-| 7   | port_flow_count_sec     | $`\frac{\text{port\_flow\_count}}{\text{ip\_duration}}`$             |
-| 8   | table_matched_lookup    | $`\frac{\text{table\_matched\_count}}{\text{table\_lookup\_count}}`$ |
-| 9   | table_active_lookup     | $`\frac{\text{table\_active\_count}}{\text{table\_lookup\_count}}`$  |
-| 10  | **port_rx_packets_sec** | $`\frac{\text{port\_rx\_packets}}{\text{port\_duration\_sec}}`$      |
-| 11  | **port_tx_packets_sec** | $`\frac{\text{port\_tx\_packets}}{\text{port\_duration\_sec}}`$      |
-| 12  | **port_rx_bytes_sec**   | $`\frac{\text{port\_rx\_bytes}}{\text{port\_duration\_sec}}`$        |
-| 13  | **port_tx_bytes_sec**   | $`\frac{\text{port\_tx\_bytes}}{\text{port\_duration\_sec}}`$        |
-
-RobustScaler<sup>[[9]](#references)</sup> (RS) was then applied to handle outliers in the dataset, ensuring that the model is not overly affected by extreme values.
-
 ### Model Training & Analysis
 
 We selected an ML model by performing a comprehensive comparison between 6 unique models using multiple evaluation metrics **before performing dimensionality reduction** on the dataset. The models compared were:
@@ -221,9 +166,9 @@ We selected an ML model by performing a comprehensive comparison between 6 uniqu
 - **Naive Bayes (NB)**: a probabilistic classifier based on Bayes' theorem with strong independence assumptions;
 - **Random Forest (RF)**: an ensemble of decision trees that improves accuracy by averaging multiple models.
 
-<details open>
+<details>
 
-<summary> Comparison of ML models</summary>
+<summary> Comparison of ML models (click to expand) </summary>
 
 ![ml_models](https://github.com/user-attachments/assets/56a9fec9-b929-4f16-a577-91d13acbae43)
 
@@ -233,23 +178,19 @@ RF was chosen over DT as RF demonstrates improved robustness and generalization 
 
 The PCA, LDA and ICA dimensionality reduction techniques were then compared using the RF model.
 
-<details open>
+<details>
 
-<summary> Comparison of Dimensionality Reduction techniques</summary>
+<summary> Comparison of Dimensionality Reduction techniques (click to expand) </summary>
 
 ![rf_dim_red](https://github.com/user-attachments/assets/63ab75d8-b090-40d6-b55c-8ed5021e49a5)
 
 </details>
 
-The performance with LDA, the best of all three, was slightly lower than using the dataset without dimensionality reduction. Given that this performance difference is negligible, we opted to use LDA for dimensionality reduction, as it allows us to reduce the feature space from 5 to 4 features.
-
-The final RF model pipeline, with manual division transformation, feature selection through intersection, scaling and dimensionality reduction, gave a final performance of 99.99% across all metrics, with marginal variance.
-
 To achieve similar results without an extensive pre-processing pipeline, the Feed Forward Neural Network DL model was evaluated. Running the model directly on the dataset's transformed features achieved an accuracy of ~98.7%, with other metrics in a similar range. Performance dropped significantly when the dataset was reduced through feature selection and dimensionality reduction, suggesting that this approach is more suitable for larger datasets.
 
-<details open>
+<details>
 
-<summary> Effect of Dimensionality Reduction techniques on FFNN</summary>
+<summary> Effect of Dimensionality Reduction techniques on FFNN (click to expand) </summary>
 
 ![ffnn_dim_red](https://github.com/user-attachments/assets/5a38afb9-91a0-4dbc-a680-ecda12030d16)
 
