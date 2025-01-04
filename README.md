@@ -26,7 +26,6 @@ Project work done for the **IP1302** course of our 5th Semester.
     - [Collected Dataset](#collected-dataset)
     - [Model Training \& Analysis](#model-training--analysis)
   - [Future Work](#future-work)
-  - [Helpful Links](#helpful-links)
   - [References](#references)
 
 ## Aim
