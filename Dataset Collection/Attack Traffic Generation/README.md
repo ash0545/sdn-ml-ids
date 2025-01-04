@@ -10,6 +10,7 @@ This section contains the scripts to generate the various types of network attac
   - [Attack Classes and Tools](#attack-classes-and-tools)
   - [Provided Files](#provided-files)
   - [Usage Instructions](#usage-instructions)
+  - [Helpful Links](#helpful-links)
 
 ## Generated Attack Classes
 
@@ -80,3 +81,16 @@ This section contains the scripts to generate the various types of network attac
    - [Selenium](https://www.selenium.dev/)
 3. Follow each script's comments for specific configurations, such as target IP addresses and network interface settings.
 4. Run the scripts in their respective VMs / Mininet Hosts - refer the [table](#generated-attack-classes) given above.
+
+## Helpful Links
+
+- Scapy classical attacks documentation - <https://scapy.readthedocs.io/en/latest/usage.html#classical-attacks>
+- "Scapy Cheat Sheet" by the SANS Institute - <https://wiki.sans.blue/Tools/pdfs/ScapyCheatSheet_v0.2.pdf>
+- Selenium with Python documentation - <https://selenium-python.readthedocs.io/>
+- DVWA - <https://github.com/digininja/DVWA>
+- MSFConsole Attacks :
+  - VNC - <https://medium.com/@jbtechmaven/penetration-testing-series-hacking-metasploitable-2-by-exploiting-vnc-port-5900-188f7cc44b8>
+  - Samba server - <https://sneakybytes.com/2022/02/22/exploiting-samba-vulnerability-on-metasploit-2/>
+- DVWA Attacks
+  - XSS - <https://ethicalhacs.com/dvwa-reflected-xss-exploit/>
+  - File upload - <https://ethicalhacs.com/dvwa-file-upload/>

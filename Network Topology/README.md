@@ -13,6 +13,7 @@ The script files provided can be used to speed up the setup of the topology. It 
   - [Connecting a Mininet host to the internet](#connecting-a-mininet-host-to-the-internet)
   - [Connecting the Kali and Metasploitable VMs - Linux Routing through the Ubuntu VM](#connecting-the-kali-and-metasploitable-vms---linux-routing-through-the-ubuntu-vm)
   - [Configuring the Kali and Metasploitable VMs](#configuring-the-kali-and-metasploitable-vms)
+  - [Helpful Links](#helpful-links)
 
 ## Creating the Topology in VirtualBox
 
@@ -69,3 +70,13 @@ The script files provided can be used to speed up the setup of the topology. It 
 - For Metasploitable - receive an IP through DHCP: `sudo dhclient eth0`
 
 - Add default routes within the Kali and Metasploitable VMs (to their respective bridges): `route add default gw <bridge ip>`
+
+## Helpful Links
+
+- VirtualBox Virtual Networking Manual - <https://www.virtualbox.org/manual/ch06.html>
+- Connecting a Mininet host to the internet - <https://gist.github.com/shreyakupadhyay/84dc75607ec1078aca3129c8958f3683>
+
+> [!NOTE]
+> If getting 'unknown host' errors when trying to access websites, the DNS nameserver will have to be configured. This can be done through the following command within the xterm window of the host under consideration: `echo 'nameserver 8.8.8.8' | tee /etc/resolv.conf`
+
+- Converting a switch to Layer 3 - <https://github.com/knetsolutions/learn-sdn-with-ryu/blob/master/ryu_part3.md>

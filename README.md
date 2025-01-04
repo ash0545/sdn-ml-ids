@@ -205,16 +205,6 @@ To achieve similar results without an extensive pre-processing pipeline, the Fee
 
 - Test out more DL models
 
-## Helpful Links
-
-- Connecting Mininet hosts to VM's network interface for access to the internet : <https://gist.github.com/shreyakupadhyay/84dc75607ec1078aca3129c8958f3683>
-
-> [!NOTE]
-> If getting 'unknown host' errors when trying to access websites, the DNS nameserver will have to be configured. This can be done through the following command within the xterm window of the host under consideration: `echo 'nameserver 8.8.8.8' | tee /etc/resolv.conf`
-
-- Ryu's ofctl_rest API documentation : <https://ryu.readthedocs.io/en/latest/app/ofctl_rest.html#ryu-app-ofctl-rest>
-- Classical attacks of Scapy : <https://scapy.readthedocs.io/en/latest/usage.html#classical-attacks>
-
 ## References
 
 [1] Alhilo, A. M. J., & Koyuncu, H. (2024). Enhancing SDN Anomaly Detection: A Hybrid Deep Learning Model with SCA-TSO Optimization. International Journal of Advanced Computer Science and Applications (IJACSA), 15(5).
