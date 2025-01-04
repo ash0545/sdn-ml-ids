@@ -13,8 +13,18 @@ This section contains the scripts to generate the various types of network norma
 
 ## Generated Normal Classes
 
+- iPerf
+- Internet
+- Ping
+- Telnet
+- DNS
+
 ## Normal Classes and Tools
 
 ## Provided Files
+
+- Internet
+  - **websites.txt**: Website list for simulating internet access.
+  - **w3m_traffic_script.sh**: Script to access a website from `websites.txt` every 5 seconds.
 
 ## Usage Instructions
