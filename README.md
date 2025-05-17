@@ -26,6 +26,7 @@ Project work done for the **IP1302** course of our 5th Semester.
     - [Collected Dataset](#collected-dataset)
     - [Model Training \& Analysis](#model-training--analysis)
   - [Future Work](#future-work)
+  - [Citation](#citation)
   - [References](#references)
 
 ## Aim
@@ -203,6 +204,23 @@ To achieve similar results without an extensive pre-processing pipeline, the Fee
 > A legacy (partially working) IDS is provided in the [Ryu Controller subdirectory](/Dataset%20Collection/), It utilizes an RF model trained with an RS PCA preprocessing pipeline. Predictions are a hit or miss.
 
 - Test out more DL models
+
+## Citation
+
+If you use this code for your research, please cite
+
+```bibtex
+@article{vadivu2025sdn,
+  author    = {Vadivu, D.S. and Santhosh, A. and Rajagopalan, N. and Pavagada, K. and Valsaraj, A.},
+  title     = {Enhancing SDN Traffic Analysis Through Machine Learning on Preprocessed Controller Flow Statistics and Packet Analysis Data},
+  journal   = {SN Computer Science},
+  volume    = {6},
+  number    = {412},
+  year      = {2025},
+  doi       = {10.1007/s42979-025-03930-5}
+}
+}
+```
 
 ## References
 
