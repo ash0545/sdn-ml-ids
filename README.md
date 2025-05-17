@@ -219,7 +219,6 @@ If you use this code for your research, please cite
   year      = {2025},
   doi       = {10.1007/s42979-025-03930-5}
 }
-}
 ```
 
 ## References
