@@ -211,13 +211,26 @@ If you use this code for your research, please cite
 
 ```bibtex
 @article{vadivu2025sdn,
-  author    = {Vadivu, D.S. and Santhosh, A. and Rajagopalan, N. and Pavagada, K. and Valsaraj, A.},
-  title     = {Enhancing SDN Traffic Analysis Through Machine Learning on Preprocessed Controller Flow Statistics and Packet Analysis Data},
-  journal   = {SN Computer Science},
-  volume    = {6},
-  number    = {412},
-  year      = {2025},
-  doi       = {10.1007/s42979-025-03930-5}
+  author  = {Vadivu, D. S. and Santhosh, A. and Rajagopalan, N. and Pavagada, K. and Valsaraj, A.},
+  title   = {Enhancing SDN Traffic Analysis Through Machine Learning on Preprocessed Controller Flow Statistics and Packet Analysis Data},
+  journal = {SN Computer Science},
+  year    = {2025},
+  volume  = {6},
+  number  = {412},
+  doi     = {10.1007/s42979-025-03930-5}
+}
+
+@article{Vadivu_Valsaraj_Santhosh_Pavagada_Rajagopalan_2025,
+  author  = {Vadivu, D. Sendil and Valsaraj, Aswin and Santhosh, Ashwin and Pavagada, Kaustub and Rajagopalan, Narendran},
+  title   = {TPOT-IDSDN: an AutoML-based model optimisation for intrusion detection system against cyber threats in software defined-networking},
+  journal = {International Journal of Communication Networks and Distributed Systems},
+  year    = {2025},
+  volume  = {31},
+  number  = {6},
+  pages   = {614--648},
+  month   = jan,
+  doi     = {10.1504/ijcnds.2025.149479},
+  url     = {https://doi.org/10.1504/ijcnds.2025.149479}
 }
 ```
 
